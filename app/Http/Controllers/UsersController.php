@@ -84,5 +84,15 @@ class UsersController extends Controller
             'users' => $followers,
         ]);
     }
-
+    public function favorites($micropost_id)
+    {
+        $user = User::findOrFail($micropost_id);
+        $user->loadRelationshipCounts();
+        $favorites = $user->favorites()->paginate(10);
+        return view('users.favorites', [
+            'user'=>$user,
+            //'users'=>$favorites,
+            'microposts'=>$favorites,
+            ]);
+    }
 }
