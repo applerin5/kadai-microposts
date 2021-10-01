@@ -9,7 +9,6 @@
         <div class="col-sm-8">
             {{-- タブ --}}
             @include('users.navtabs')
-            
             @include('microposts.microposts')
         </div>
     </div>

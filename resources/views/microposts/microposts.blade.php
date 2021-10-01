@@ -18,15 +18,17 @@
                         <div class="row">
                         {{-- お気に入りボタン --}}
                         <div class="col-md-1.5">
-                            @include('favorites.favorite_button')</div>
+                            @include('favorites.favorite_button')
+                        </div>
                         @if (Auth::id() == $micropost->user_id)
                             {{-- 投稿削除ボタンのフォーム --}}
                             <div class="col-md-1.5">
-                            {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
-                                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                            {!! Form::close() !!}
+                                {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
+                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                                {!! Form::close() !!}
+                            </div>
                         @endif
-                        </div>
+                        
                         </div>
                         
                     </div>
